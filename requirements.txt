@@ -1,0 +1,5 @@
+pdfplumber
+ollama
+openai
+langchain
+sklearn
