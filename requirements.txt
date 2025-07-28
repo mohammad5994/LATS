@@ -2,4 +2,4 @@ pdfplumber
 ollama
 openai
 langchain
-sklearn
+scikit-learn
