@@ -3,3 +3,7 @@ ollama
 openai
 langchain
 scikit-learn
+nltk
+sentence_transformers
+spacy
+dotenv
