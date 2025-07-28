@@ -1,4 +1,4 @@
-from resume_parsing import resume_parser
+from resume_parsing import resume_parser, resume_parser_openai
 from job_desc_parsing import extract_jd_components_openai
 from scoring_module import scoring_openai
 import os
@@ -26,7 +26,7 @@ with tab2:
         else:
             if not os.path.exists(f"./data/{job_id}"):
                 os.makedirs(f"./data/{job_id}")
-            user_resume = resume_parser(uploaded_file, job_id=job_id)
+            user_resume = resume_parser_openai(uploaded_file, job_id=job_id)
 
             st.text_input("Job title", user_resume["title"])
             st.text_area("Profile", user_resume["bio"])

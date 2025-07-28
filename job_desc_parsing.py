@@ -254,5 +254,5 @@ Return the results in a JSON format like this:
 
 
 
-extract_jd_components_llama(JOB_DESC2)
+#extract_jd_components_llama(JOB_DESC2)
 #extract_jd_components_openai(JOB_DESC2)
