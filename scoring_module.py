@@ -13,6 +13,8 @@ from collections import defaultdict
 from dotenv import load_dotenv
 import os
 
+nltk.download()
+
 load_dotenv()
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
