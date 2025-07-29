@@ -33,13 +33,14 @@ with tab2:
             st.text_area("Skills", " | ".join(user_resume["skills"]))
             st.text_area("Professional Experiences", user_resume["work_experience"])
             st.text_area("Education", user_resume["education"])
-            optimise = st.button("Start Tailoring Resume", key=2)
+            optimise = st.button("Start Tailoring Resume", key=3)
 
 with tab3:
     if optimise:
         if uploaded_file is None or not job_desc.strip() or not job_id.strip():
             st.warning("Please upload your resume, job description and job ID")
         else:
+            print("Start tailoring resume...")
             extract_jd_components_openai(job_desc, job_id)
             (profile, responsibilities, tech_skills,
              domain_skills, soft_skills) = scoring_openai(job_id)

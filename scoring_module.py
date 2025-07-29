@@ -49,7 +49,7 @@ def text_cleaning(text):
 
 
 def get_CV_responsibilities_chunks(job_id):
-    with open('./data/resume_json.p', 'rb') as fp:
+    with open(f'./data/{job_id}/resume_json.p', 'rb') as fp:
         resume = pickle.load(fp)
 
     text = resume["work_experience"].replace("•", "")
@@ -58,7 +58,7 @@ def get_CV_responsibilities_chunks(job_id):
     return text
 
 def get_CV_bio(job_id):
-    with open('./data/resume_json.p', 'rb') as fp:
+    with open(f'./data/{job_id}/resume_json.p', 'rb') as fp:
         resume = pickle.load(fp)
 
     text = resume["bio"].replace("•", "")
@@ -68,7 +68,7 @@ def get_CV_bio(job_id):
 
 
 def get_JD_responsibilities_chunks(job_id):
-    with open('./data/jd_llama.txt', 'r') as f:
+    with open(f'./data/{job_id}/jd_gpt.txt', 'r') as f:
         jd = json.load(f)
 
     #text = text_cleaning(" ".join(jd["responsibilities"]))
@@ -77,7 +77,7 @@ def get_JD_responsibilities_chunks(job_id):
 
 
 def get_JD_skills(job_id):
-    with open('./data/jd_gpt.txt', 'r') as f:
+    with open(f'./data/{job_id}/jd_gpt.txt', 'r') as f:
         jd = json.load(f)
 
     skills = jd["required_skills"] + jd["preferred_skills"] + jd["soft_skills"]
@@ -95,7 +95,7 @@ def get_JD_skills(job_id):
 
 
 def get_CV_skills(job_id):
-    with open('./data/resume_json.p', 'rb') as fp:
+    with open(f'./data/{job_id}/resume_json.p', 'rb') as fp:
         resume = pickle.load(fp)
     skills = []
     print("Start Cleaning cv skills...")

@@ -18,14 +18,14 @@ openai_api_key = os.getenv("OPENAI_API_KEY")
 MODEL_NAME = "llama3.2:3b"
 
 
-def get_pdf_text(path):
+def get_pdf_text(path, job_id):
     pdf = pl.open(path)
 
     pdf_text = ""
     for page in pdf.pages:
         pdf_text += page.extract_text()
 
-    with open("./data/resume_no_cleaning.txt", "a") as f:
+    with open(f"./data/{job_id}/resume_no_cleaning.txt", "a") as f:
         f.write(pdf_text)
 
     return pdf_text
@@ -774,11 +774,12 @@ def resume_parser(path, job_id):
         pickle.dump(user_resume_items, fp, protocol=pickle.HIGHEST_PROTOCOL)
     return user_resume_items
 
+
 def resume_parser_openai(path, job_id):
     print(f"Start parsing resume...")
     user_resume_items = {}
 
-    pdf_text = get_pdf_text(path)
+    pdf_text = get_pdf_text(path, job_id)
     #print(pdf_text)
 
     title = extract_title_openai(pdf_text)
@@ -824,8 +825,6 @@ def resume_parser_openai(path, job_id):
     with open(f'./data/{job_id}/resume_json.p', 'wb') as fp:
         pickle.dump(user_resume_items, fp, protocol=pickle.HIGHEST_PROTOCOL)
     return user_resume_items
-
-
 
 
 #pdf_text = get_pdf_text("./data/resume.pdf")

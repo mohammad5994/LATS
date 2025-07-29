@@ -181,7 +181,6 @@ Return the results in a JSON format like this(no intro, no numbering, no bullets
         fp.write(response["message"]["content"])
 
 
-
 def extract_jd_components_openai(job_desc, job_id):
     print(f"Start parsing job ad...")
     openai = OpenAI(api_key=openai_api_key)
@@ -195,7 +194,6 @@ def extract_jd_components_openai(job_desc, job_id):
     - Maintaining the original tone and specificity of the source material
 
     Always return valid JSON with no additional text or explanation."""
-
 
     user_prompt = """Extract the following information from the job description and return it as a valid JSON object:
 
@@ -249,10 +247,6 @@ Return the results in a JSON format like this:
     print(response.choices[0].message.content)
     with open(f'./data/{job_id}/jd_gpt.txt', 'w') as fp:
         fp.write(response.choices[0].message.content)
-
-
-
-
 
 #extract_jd_components_llama(JOB_DESC2)
 #extract_jd_components_openai(JOB_DESC2)
