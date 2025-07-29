@@ -12,7 +12,6 @@ from openai import OpenAI
 from dotenv import load_dotenv
 import os
 
-nltk.download()
 
 load_dotenv()
 openai_api_key = os.getenv("OPENAI_API_KEY")
@@ -47,7 +46,7 @@ def clean_text(text, stem=None):
 
     text = text.split()
     useless_words = nltk.corpus.stopwords.words("english")
-    useless_words = useless_words + ["hi", "im"]
+    #useless_words = useless_words + ["hi", "im"]
 
     filtered_text = [word for word in text if not word in useless_words]
 

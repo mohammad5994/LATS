@@ -13,7 +13,7 @@ from collections import defaultdict
 from dotenv import load_dotenv
 import os
 
-nltk.download()
+#nltk.download()
 
 load_dotenv()
 openai_api_key = os.getenv("OPENAI_API_KEY")
@@ -41,13 +41,13 @@ def text_cleaning(text):
     text = text.translate(translator)
 
     text = text.split()
-    useless_words = nltk.corpus.stopwords.words("english")
-    useless_words = useless_words + ["hi", "im"]
+    #useless_words = nltk.corpus.stopwords.words("english")
+    #useless_words = useless_words + ["hi", "im"]
 
     #cleaned_text = text
-    cleaned_text = [word for word in text if not word in useless_words]
+    #cleaned_text = [word for word in text if not word in useless_words]
 
-    return cleaned_text
+    return text
 
 
 def get_CV_responsibilities_chunks(job_id):
