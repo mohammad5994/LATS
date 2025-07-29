@@ -4,6 +4,9 @@ from scoring_module import scoring_openai
 import streamlit as st
 import os
 
+if not os.path.exists("./data"):
+    os.makedirs("./data")
+
 
 st.set_page_config(layout="wide")
 
